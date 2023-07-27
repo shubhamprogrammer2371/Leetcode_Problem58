@@ -1,0 +1,45 @@
+int lengthOfLastWord(char * s){
+    int i = 0, j = 0, length = 0, words_length[500];
+    while (s[i] != '\0')
+    {
+        if (s[i] == ' ')
+        {
+            if (length != 0)
+            {
+                words_length[j] = length;
+                j++;
+            }
+            length = 0;
+        }
+        else
+            length++;
+        i++;
+    }
+    if (length != 0)
+        return length;
+    else
+        return words_length[--j];
+} 
+
+---------------------------------------------------------------------------------------------
+
+
+int lengthOfLastWord(char * s){
+    int i = 0, j = 0, length = 0, counter=0;
+    while (s[i] != '\0')
+    {
+        if (s[i] == ' ')
+        {
+            if (counter != 0)
+                length = counter;
+            counter = 0;
+        }
+        else
+            counter++;
+        i++;
+    }
+    if(counter !=0)
+        return counter;
+    else
+        return length;
+} 
